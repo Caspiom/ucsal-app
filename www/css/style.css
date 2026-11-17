@@ -286,6 +286,43 @@ body {
   margin: 6px 0 14px;
 }
 
+.card-publicacao-lista {
+  display: flex;
+  margin: 10px 14px;
+}
+
+.card-miniatura {
+  width: 150px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.card-corpo-lista {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-meta .selo {
+  padding: 1px 9px;
+  font-size: 11px;
+}
+
+.card-titulo-lista {
+  font-size: 15px;
+  margin: 6px 0 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .card-titulo-grande {
   font-size: 22px;
 }

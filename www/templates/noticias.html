@@ -6,14 +6,14 @@
       <button class="filtro-botao" ng-class="{'filtro-ativo': filtro.categoria === 'Evento'}" ng-click="filtro.categoria = 'Evento'">Eventos</button>
     </div>
 
-    <div class="card-publicacao" ng-repeat="publicacao in publicacoes | filter:{ categoria: filtro.categoria }">
-      <div class="card-imagem">
-        <img ng-src="{{ publicacao.imagem }}" alt="">
-        <span class="selo selo-sobre-imagem" ng-class="{'selo-noticia': publicacao.categoria === 'Notícia', 'selo-evento': publicacao.categoria === 'Evento'}">{{ publicacao.categoria }}</span>
-      </div>
-      <div class="card-corpo">
-        <p class="card-data"><i class="ion-ios-calendar-outline"></i> {{ publicacao.data | date:'dd/MM/yyyy' }}</p>
-        <h2 class="card-titulo">{{ publicacao.titulo }}</h2>
+    <div class="card-publicacao card-publicacao-lista" ng-repeat="publicacao in publicacoes | filter:{ categoria: filtro.categoria }">
+      <img class="card-miniatura" ng-src="{{ publicacao.imagem }}" alt="">
+      <div class="card-corpo card-corpo-lista">
+        <div class="card-meta">
+          <span class="selo" ng-class="{'selo-noticia': publicacao.categoria === 'Notícia', 'selo-evento': publicacao.categoria === 'Evento'}">{{ publicacao.categoria }}</span>
+          <span class="card-data">{{ publicacao.data | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <h2 class="card-titulo card-titulo-lista">{{ publicacao.titulo }}</h2>
         <button class="button button-small botao-principal botao-arredondado" ng-click="lerMais(publicacao)">Ler mais <i class="ion-ios-arrow-forward"></i></button>
       </div>
     </div>

@@ -1,20 +1,20 @@
 <ion-view view-title="Notícias e Eventos">
-  <ion-content>
+  <ion-content class="conteudo-pagina">
     <div class="filtro-categorias">
-      <button class="button button-small" ng-class="{'filtro-ativo': filtro.categoria === ''}" ng-click="filtro.categoria = ''">Todas</button>
-      <button class="button button-small" ng-class="{'filtro-ativo': filtro.categoria === 'Notícia'}" ng-click="filtro.categoria = 'Notícia'">Notícias</button>
-      <button class="button button-small" ng-class="{'filtro-ativo': filtro.categoria === 'Evento'}" ng-click="filtro.categoria = 'Evento'">Eventos</button>
+      <button class="filtro-botao" ng-class="{'filtro-ativo': filtro.categoria === ''}" ng-click="filtro.categoria = ''">Todas</button>
+      <button class="filtro-botao" ng-class="{'filtro-ativo': filtro.categoria === 'Notícia'}" ng-click="filtro.categoria = 'Notícia'">Notícias</button>
+      <button class="filtro-botao" ng-class="{'filtro-ativo': filtro.categoria === 'Evento'}" ng-click="filtro.categoria = 'Evento'">Eventos</button>
     </div>
 
-    <div class="list card" ng-repeat="publicacao in publicacoes | filter:{ categoria: filtro.categoria }">
-      <div class="item item-image">
+    <div class="card-publicacao" ng-repeat="publicacao in publicacoes | filter:{ categoria: filtro.categoria }">
+      <div class="card-imagem">
         <img ng-src="{{ publicacao.imagem }}" alt="">
+        <span class="selo selo-sobre-imagem" ng-class="{'selo-noticia': publicacao.categoria === 'Notícia', 'selo-evento': publicacao.categoria === 'Evento'}">{{ publicacao.categoria }}</span>
       </div>
-      <div class="item item-body">
-        <span class="selo" ng-class="{'selo-noticia': publicacao.categoria === 'Notícia', 'selo-evento': publicacao.categoria === 'Evento'}">{{ publicacao.categoria }}</span>
-        <span class="card-data">{{ publicacao.data | date:'dd/MM/yyyy' }}</span>
+      <div class="card-corpo">
+        <p class="card-data"><i class="ion-ios-calendar-outline"></i> {{ publicacao.data | date:'dd/MM/yyyy' }}</p>
         <h2 class="card-titulo">{{ publicacao.titulo }}</h2>
-        <button class="button button-small botao-principal" ng-click="lerMais(publicacao)">Ler mais</button>
+        <button class="button button-small botao-principal botao-arredondado" ng-click="lerMais(publicacao)">Ler mais <i class="ion-ios-arrow-forward"></i></button>
       </div>
     </div>
   </ion-content>

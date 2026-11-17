@@ -1,22 +1,23 @@
 <ion-view hide-nav-bar="true">
-  <ion-content class="tela-login">
+  <ion-content class="tela-login" scroll="false">
     <div class="login-caixa">
       <img class="login-logo" src="img/logo.svg" alt="UCSal">
       <h1 class="login-titulo">Portal do Aluno</h1>
+      <p class="login-subtitulo">Universidade Católica do Salvador</p>
 
-      <form novalidate>
-        <div class="list">
-          <label class="item item-input">
-            <input type="text" inputmode="numeric" placeholder="Matrícula" ng-model="dados.matricula">
-          </label>
-          <label class="item item-input">
-            <input type="password" placeholder="Senha" ng-model="dados.senha">
-          </label>
-        </div>
+      <form class="login-formulario" novalidate>
+        <label class="login-campo">
+          <i class="login-campo-icone ion-ios-person-outline"></i>
+          <input type="text" inputmode="numeric" placeholder="Matrícula" ng-model="dados.matricula">
+        </label>
+        <label class="login-campo">
+          <i class="login-campo-icone ion-ios-locked-outline"></i>
+          <input type="password" placeholder="Senha" ng-model="dados.senha">
+        </label>
 
         <p class="mensagem-erro" ng-if="mensagemErro">{{ mensagemErro }}</p>
 
-        <button type="submit" class="button button-block botao-principal" ng-click="entrar()">Entrar</button>
+        <button type="submit" class="button button-block botao-principal botao-grande" ng-click="entrar()">Entrar</button>
       </form>
     </div>
   </ion-content>

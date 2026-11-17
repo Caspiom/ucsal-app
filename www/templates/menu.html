@@ -12,14 +12,23 @@
   <ion-side-menu side="left" class="menu-lateral-ucsal">
     <ion-content>
       <div class="menu-cabecalho">
+        <div class="avatar-iniciais">{{ getAluno().nome | iniciais }}</div>
         <p class="menu-aluno-nome">{{ getAluno().nome }}</p>
         <p class="menu-aluno-matricula">Matrícula {{ getAluno().matricula }}</p>
       </div>
-      <ion-list>
-        <ion-item menu-close ui-sref="app.noticias">Notícias e Eventos</ion-item>
-        <ion-item menu-close ui-sref="app.perfil">Atualização Cadastral</ion-item>
-        <ion-item menu-close ui-sref="app.financeiro">Financeiro</ion-item>
-        <ion-item menu-close ng-click="sair()">Sair</ion-item>
+      <ion-list class="menu-lista">
+        <ion-item class="menu-item" menu-close ui-sref="app.noticias" ui-sref-active="menu-item-ativo">
+          <i class="menu-item-icone ion-ios-paper-outline"></i>Notícias e Eventos
+        </ion-item>
+        <ion-item class="menu-item" menu-close ui-sref="app.perfil" ui-sref-active="menu-item-ativo">
+          <i class="menu-item-icone ion-ios-person-outline"></i>Atualização Cadastral
+        </ion-item>
+        <ion-item class="menu-item" menu-close ui-sref="app.financeiro" ui-sref-active="menu-item-ativo">
+          <i class="menu-item-icone ion-ios-calculator-outline"></i>Financeiro
+        </ion-item>
+        <ion-item class="menu-item menu-item-sair" menu-close ng-click="sair()">
+          <i class="menu-item-icone ion-ios-redo-outline"></i>Sair
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

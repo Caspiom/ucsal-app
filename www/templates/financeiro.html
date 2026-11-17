@@ -1,26 +1,41 @@
 <ion-view view-title="Financeiro">
-  <ion-content>
-    <div class="list">
-      <label class="item item-input item-select">
-        <div class="input-label">Semestre letivo</div>
+  <ion-content class="conteudo-pagina">
+    <div class="seletor-semestre">
+      <span class="seletor-rotulo">Semestre letivo</span>
+      <div class="seletor-caixa">
         <select ng-model="selecao.semestre" ng-options="semestre for semestre in semestres" ng-change="carregarMensalidades()"></select>
-      </label>
+        <i class="seletor-seta ion-ios-arrow-down"></i>
+      </div>
     </div>
 
-    <div class="list">
-      <div class="item mensalidade" ng-repeat="mensalidade in mensalidades">
-        <div class="mensalidade-linha">
+    <div class="resumo-financeiro">
+      <div class="resumo-bloco resumo-pago">
+        <span class="resumo-rotulo">Pago</span>
+        <span class="resumo-valor">{{ resumo.pago | currency:'R$ ' }}</span>
+      </div>
+      <div class="resumo-bloco resumo-a-pagar">
+        <span class="resumo-rotulo">A pagar</span>
+        <span class="resumo-valor">{{ resumo.aPagar | currency:'R$ ' }}</span>
+      </div>
+    </div>
+
+    <div class="mensalidade" ng-repeat="mensalidade in mensalidades" ng-class="{'mensalidade-paga': mensalidade.status === 'Paga', 'mensalidade-a-pagar': mensalidade.status === 'A Pagar'}">
+      <div class="mensalidade-linha">
+        <div>
           <h2 class="mensalidade-mes">{{ mensalidade.mes }}</h2>
+          <p class="mensalidade-vencimento">Vencimento: {{ mensalidade.vencimento | date:'dd/MM/yyyy' }}</p>
+        </div>
+        <div class="mensalidade-lado-direito">
+          <p class="mensalidade-valor">{{ mensalidade.valor | currency:'R$ ' }}</p>
           <span class="selo" ng-class="{'selo-paga': mensalidade.status === 'Paga', 'selo-a-pagar': mensalidade.status === 'A Pagar'}">{{ mensalidade.status }}</span>
         </div>
-        <p>Vencimento: {{ mensalidade.vencimento | date:'dd/MM/yyyy' }}</p>
-        <p class="mensalidade-valor">{{ mensalidade.valor | currency:'R$ ' }}</p>
-        <div ng-if="mensalidade.status === 'A Pagar'">
-          <p class="linha-digitavel">{{ mensalidade.codigoBarras }}</p>
-          <button class="button button-small botao-principal" ng-click="copiarCodigoDeBarras(mensalidade)">
-            {{ codigoCopiadoId === mensalidade.id ? 'Código copiado' : 'Copiar Código de Barras' }}
-          </button>
-        </div>
+      </div>
+      <div class="mensalidade-pagamento" ng-if="mensalidade.status === 'A Pagar'">
+        <p class="linha-digitavel">{{ mensalidade.codigoBarras }}</p>
+        <button class="button button-block botao-principal botao-arredondado" ng-click="copiarCodigoDeBarras(mensalidade)">
+          <i ng-class="codigoCopiadoId === mensalidade.id ? 'ion-checkmark-circled' : 'ion-ios-copy-outline'"></i>
+          {{ codigoCopiadoId === mensalidade.id ? 'Código copiado' : 'Copiar Código de Barras' }}
+        </button>
       </div>
     </div>
   </ion-content>

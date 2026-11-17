@@ -1,53 +1,63 @@
 <ion-view view-title="Atualização Cadastral">
-  <ion-content>
+  <ion-content class="conteudo-pagina">
+    <div class="perfil-topo">
+      <div class="avatar-iniciais avatar-grande">{{ aluno.nome | iniciais }}</div>
+      <p class="perfil-nome">{{ aluno.nome }}</p>
+      <p class="perfil-curso">{{ aluno.curso }}</p>
+    </div>
+
     <form name="formularioPerfil" novalidate>
-      <div class="list">
-        <div class="item item-divider">Dados institucionais</div>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Nome completo</span>
+      <div class="secao-formulario">
+        <h3 class="secao-titulo">Dados institucionais</h3>
+        <label class="campo">
+          <span class="campo-rotulo">Nome completo</span>
           <input type="text" ng-model="aluno.nome" ng-disabled="true">
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Matrícula</span>
+        <label class="campo">
+          <span class="campo-rotulo">Matrícula</span>
           <input type="text" ng-model="aluno.matricula" ng-disabled="true">
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Curso</span>
+        <label class="campo">
+          <span class="campo-rotulo">Curso</span>
           <input type="text" ng-model="aluno.curso" ng-disabled="true">
         </label>
+      </div>
 
-        <div class="item item-divider">Contato</div>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">E-mail pessoal</span>
+      <div class="secao-formulario">
+        <h3 class="secao-titulo">Contato</h3>
+        <label class="campo">
+          <span class="campo-rotulo">E-mail pessoal</span>
           <input type="email" name="email" ng-model="aluno.email" required>
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Telefone / WhatsApp</span>
+        <label class="campo">
+          <span class="campo-rotulo">Telefone / WhatsApp</span>
           <input type="tel" name="telefone" ng-model="aluno.telefone" required>
         </label>
+      </div>
 
-        <div class="item item-divider">Endereço</div>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">CEP</span>
+      <div class="secao-formulario">
+        <h3 class="secao-titulo">Endereço</h3>
+        <label class="campo">
+          <span class="campo-rotulo">CEP</span>
           <input type="text" name="cep" ng-model="aluno.cep" required>
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Rua</span>
+        <label class="campo">
+          <span class="campo-rotulo">Rua</span>
           <input type="text" name="rua" ng-model="aluno.rua" required>
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Bairro</span>
+        <label class="campo">
+          <span class="campo-rotulo">Bairro</span>
           <input type="text" name="bairro" ng-model="aluno.bairro" required>
         </label>
-        <label class="item item-input item-stacked-label">
-          <span class="input-label">Cidade</span>
+        <label class="campo">
+          <span class="campo-rotulo">Cidade</span>
           <input type="text" name="cidade" ng-model="aluno.cidade" required>
         </label>
       </div>
 
-      <div class="padding">
+      <div class="area-botao-salvar">
         <p class="mensagem-erro" ng-if="mensagemErro">{{ mensagemErro }}</p>
-        <button type="submit" class="button button-block botao-principal" ng-click="salvar(formularioPerfil)">Salvar Alterações</button>
+        <button type="submit" class="button button-block botao-principal botao-grande" ng-click="salvar(formularioPerfil)">Salvar Alterações</button>
       </div>
     </form>
   </ion-content>

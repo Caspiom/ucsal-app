@@ -1,17 +1,17 @@
 <ion-view view-title="Detalhe">
-  <ion-content>
-    <div class="card" ng-if="publicacao">
-      <div class="item item-image">
+  <ion-content class="conteudo-pagina">
+    <div class="card-publicacao" ng-if="publicacao">
+      <div class="card-imagem">
         <img ng-src="{{ publicacao.imagem }}" alt="">
+        <span class="selo selo-sobre-imagem" ng-class="{'selo-noticia': publicacao.categoria === 'Notícia', 'selo-evento': publicacao.categoria === 'Evento'}">{{ publicacao.categoria }}</span>
       </div>
-      <div class="item item-body">
-        <span class="selo" ng-class="{'selo-noticia': publicacao.categoria === 'Notícia', 'selo-evento': publicacao.categoria === 'Evento'}">{{ publicacao.categoria }}</span>
-        <span class="card-data">{{ publicacao.data | date:'dd/MM/yyyy' }}</span>
-        <h2 class="card-titulo">{{ publicacao.titulo }}</h2>
+      <div class="card-corpo">
+        <p class="card-data"><i class="ion-ios-calendar-outline"></i> {{ publicacao.data | date:'dd/MM/yyyy' }}</p>
+        <h2 class="card-titulo card-titulo-grande">{{ publicacao.titulo }}</h2>
         <p class="texto-completo">{{ publicacao.conteudo }}</p>
       </div>
     </div>
 
-    <p class="padding" ng-if="!publicacao">Publicação não encontrada.</p>
+    <p class="aviso-vazio" ng-if="!publicacao">Publicação não encontrada.</p>
   </ion-content>
 </ion-view>

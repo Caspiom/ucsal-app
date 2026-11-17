@@ -1,0 +1,54 @@
+<ion-view view-title="Atualização Cadastral">
+  <ion-content>
+    <form name="formularioPerfil" novalidate>
+      <div class="list">
+        <div class="item item-divider">Dados institucionais</div>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Nome completo</span>
+          <input type="text" ng-model="aluno.nome" ng-disabled="true">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Matrícula</span>
+          <input type="text" ng-model="aluno.matricula" ng-disabled="true">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Curso</span>
+          <input type="text" ng-model="aluno.curso" ng-disabled="true">
+        </label>
+
+        <div class="item item-divider">Contato</div>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">E-mail pessoal</span>
+          <input type="email" name="email" ng-model="aluno.email" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Telefone / WhatsApp</span>
+          <input type="tel" name="telefone" ng-model="aluno.telefone" required>
+        </label>
+
+        <div class="item item-divider">Endereço</div>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">CEP</span>
+          <input type="text" name="cep" ng-model="aluno.cep" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Rua</span>
+          <input type="text" name="rua" ng-model="aluno.rua" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Bairro</span>
+          <input type="text" name="bairro" ng-model="aluno.bairro" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Cidade</span>
+          <input type="text" name="cidade" ng-model="aluno.cidade" required>
+        </label>
+      </div>
+
+      <div class="padding">
+        <p class="mensagem-erro" ng-if="mensagemErro">{{ mensagemErro }}</p>
+        <button type="submit" class="button button-block botao-principal" ng-click="salvar(formularioPerfil)">Salvar Alterações</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

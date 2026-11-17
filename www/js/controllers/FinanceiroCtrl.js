@@ -4,9 +4,21 @@ angular.module('ucsalApp').controller('FinanceiroCtrl', ['$scope', '$q', '$ionic
   $scope.mensalidades = [];
   $scope.codigoCopiadoId = null;
 
+  function calcularResumo() {
+    $scope.resumo = { pago: 0, aPagar: 0 };
+    $scope.mensalidades.forEach(function(mensalidade) {
+      if (mensalidade.status === 'Paga') {
+        $scope.resumo.pago += mensalidade.valor;
+      } else {
+        $scope.resumo.aPagar += mensalidade.valor;
+      }
+    });
+  }
+
   $scope.carregarMensalidades = function() {
     $scope.mensalidades = FinanceiroService.listarMensalidades($scope.selecao.semestre);
     $scope.codigoCopiadoId = null;
+    calcularResumo();
   };
 
   function copiarTexto(texto) {

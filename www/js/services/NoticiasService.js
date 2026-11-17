@@ -2,8 +2,8 @@ angular.module('ucsalApp').factory('NoticiasService', function() {
   var publicacoes = [
     {
       id: 1,
-      titulo: 'Prazo de rematrícula 2027.1 termina em dezembro',
-      data: '2026-11-30',
+      titulo: 'Prazo de rematrícula 2027.1 termina em 30 de novembro',
+      data: '2026-11-05',
       categoria: 'Notícia',
       imagem: 'img/rematricula.svg',
       conteudo: 'A rematrícula para o semestre 2027.1 deve ser concluída até o dia 30 de novembro. O aluno precisa estar com as mensalidades em dia e confirmar os dados cadastrais no portal. Quem não renovar a matrícula no prazo pode perder a vaga nas turmas escolhidas.'
